@@ -13,3 +13,16 @@ class CoinDetectionDataset(Dataset):
 
     def __len__(self):
         return len(self.data)
+
+    def __getitem__(self, idx):
+        sample = self.data[idx]
+
+        return {
+            "image": to_tensor(sample["image"].convert("RGB")),
+            "boxes": torch.as_tensor(
+                sample["boxes"], dtype=torch.float32
+            ).reshape(-1, 4),
+            "labels": torch.as_tensor(
+                sample["labels"], dtype=torch.long
+            ).reshape(-1),
+        }

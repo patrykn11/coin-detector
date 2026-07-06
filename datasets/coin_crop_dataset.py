@@ -10,3 +10,10 @@ class CoinCropDataset(Dataset):
 
     def __len__(self):
         return len(self.labels)
+
+    def __getitem__(self, idx):
+        return (
+            self.crops[idx],
+            self.labels[idx],
+            self.bb_diffs[idx],
+        )

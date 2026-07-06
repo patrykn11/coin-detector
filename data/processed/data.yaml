@@ -1,0 +1,15 @@
+path: /Users/patryknisgorski/_aii/data/processed
+train: images/train
+val: images/val
+
+nc: 9
+names:
+  0: 1gr
+  1: 2gr
+  2: 5gr
+  3: 10gr
+  4: 20gr
+  5: 50gr
+  6: 1zl
+  7: 2zl
+  8: 5zl

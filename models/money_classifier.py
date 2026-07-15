@@ -13,6 +13,7 @@ class ResidualBlock(nn.Module):
 
         self.conv2 = nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1, bias=False)
         self.bn2 = nn.BatchNorm2d(out_channels)
+        self.dropout = nn.Dropout(0.35)
 
         if downsample or in_channels != out_channels:
             self.shortcut = nn.Sequential(
@@ -31,6 +32,7 @@ class ResidualBlock(nn.Module):
 
         out = self.conv2(out)
         out = self.bn2(out)
+        out = self.dropout(out)
 
         out = out + identity
 

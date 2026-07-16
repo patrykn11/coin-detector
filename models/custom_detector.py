@@ -23,3 +23,17 @@ class CustomDetector:
         self.background_model.eval()
         self.regressor_model.eval()
         self.classifier_model.eval()
+
+    def centered_crop(self, image, box):
+        _, height, width = image.shape
+
+        cx = (box[0] + box[2]) / 2
+        cy = (box[1] + box[3]) / 2
+
+        x1 = int(cx - self.crop_size / 2)
+        y1 = int(cy - self.crop_size / 2)
+
+        x1 = max(0, min(x1, width - self.crop_size))
+        y1 = max(0, min(y1, height - self.crop_size))
+
+        return image[:, y1:y1 + self.crop_size, x1:x1 + self.crop_size]

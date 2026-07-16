@@ -19,3 +19,7 @@ class CustomDetector:
         self.background_model.load_state_dict(torch.load(background_checkpoint, map_location=self.device, weights_only=True))
         self.regressor_model.load_state_dict(torch.load(regressor_checkpoint, map_location=self.device, weights_only=True))
         self.classifier_model.load_state_dict(torch.load(classifier_checkpoint, map_location=self.device, weights_only=True))
+
+        self.background_model.eval()
+        self.regressor_model.eval()
+        self.classifier_model.eval()

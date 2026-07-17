@@ -104,3 +104,6 @@ class CustomDetector:
             results.append((x1, y1, x2, y2, labels[i], scores[i]))
 
         return results
+
+    def __call__(self, image):
+        return self.predict(image)

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+
+*.pth
+*.cache
+
+notebooks/*.pt
+
+checkpoints/yolo_coin/weights/last.pt
+checkpoints/yolo_coin/train_batch*.jpg

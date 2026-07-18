@@ -1,6 +1,7 @@
-# Coin Detection
+## Coin Detection
 
-This project detects and classifies nine denominations of Polish coins in images. It includes a custom detector built from several PyTorch models and a YOLO26n model trained on the same dataset.
+Pipeline for detecting, localizing and classifying nine denominations of coins using specialized models for background filtering, bounding box refinement and denomination recognition.
+
 
 ## Custom detector
 
@@ -9,8 +10,6 @@ Detection consists of three stages:
 1. `BackgroundClassifier` rejects image crops without coins.
 2. `DifferenceRegressor` adjusts the bounding box coordinates.
 3. `MoneyClassifier` predicts the coin denomination.
-
-Overlapping detections are removed using non-maximum suppression.
 
 ## Results
 
